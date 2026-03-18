@@ -25,8 +25,9 @@ public class LineDrawerAdapter implements Job2dDriver {
 
     private LineType lineType = LineType.SPECIAL;
 
-    public LineDrawerAdapter() {
+    public LineDrawerAdapter(LineType lineType) {
         drawPanelController = DrawerFeature.getDrawerController();
+        this.lineType = lineType;
     }
 
     private ILine getCurrentLine(){
@@ -42,10 +43,6 @@ public class LineDrawerAdapter implements Job2dDriver {
         }
 
         return null;
-    }
-
-    public void setLineType(LineType lineType){
-        this.lineType = lineType;
     }
 
     @Override
