@@ -6,6 +6,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 
+import javax.sound.sampled.Line;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class LineDrawerAdapter implements Job2dDriver {
                 return LineFactory.getSpecialLine();
         }
 
-        return null;
+        return LineFactory.getBasicLine();
     }
 
     @Override
@@ -54,9 +55,6 @@ public class LineDrawerAdapter implements Job2dDriver {
     @Override
     public void operateTo(int x, int y) {
         ILine line = getCurrentLine();
-
-        if(line == null) return;
-
         line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
 
